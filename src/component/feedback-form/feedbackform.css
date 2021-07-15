@@ -1,0 +1,42 @@
+.feedback-form {
+  width: 50%;
+  padding: 60px 0;
+}
+
+.receiver-alert {
+  text-align: center;
+  color: var(--secondary);
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.select-smiley {
+  margin: 3rem 0;
+}
+
+.feedback-form form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.feedback-form form textarea {
+  width: 80%;
+  margin: 0 auto;
+  height: 150px;
+  resize: none;
+  outline: none;
+}
+
+.feedback-form .feedback-btn {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: var(--secondary);
+  color: white;
+  font-size: 25px;
+}

@@ -12,3 +12,17 @@
 .smiley-count {
   color: var(--primary);
 }
+
+.select-smiley-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.select-smiley-container .smiley {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.selected-smiley.smiley {
+  font-size: 90px !important;
+}
