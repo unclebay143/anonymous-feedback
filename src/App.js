@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import { AuthPages } from "./component/auth-pages/AuthPages";
+import { Dashboard } from "./component/dashboard/Dashboard";
+import { FeedbackForm } from "./component/feedback-form/FeedbackForm";
+import { Homepage } from "./component/homepage/Homepage";
+import { pageUrl } from "./constant/pageurl";
+import { Navbar } from "./layouts/navbars/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Switch>
+        <Route exact path={pageUrl.SEND_FEEDBACK} component={FeedbackForm} />
+        <Route exact path={pageUrl.DASHBOARD} component={Dashboard} />
+        <Route exact path={pageUrl.REGISTERATION_PAGE} component={AuthPages} />
+        <Route exact path={pageUrl.LOGIN_PAGE} component={AuthPages} />
+        <Route exact path={pageUrl.HOMEPAGE} component={Homepage} />
+      </Switch>
+    </React.Fragment>
   );
 }
 

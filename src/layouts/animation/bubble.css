@@ -1,0 +1,64 @@
+.bubble {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: -70px;
+  right: 0;
+}
+
+.bubble i {
+  font-size: 50px;
+  animation: bubble-float 8s linear infinite;
+  background-color: var(--primary);
+  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  z-index: -10;
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80vh);
+    opacity: 0;
+  }
+}
+
+.bubble i:nth-child(1) {
+  animation-delay: 2s;
+  font-size: 20px;
+}
+
+.bubble i:nth-child(2) {
+  animation-delay: 1s;
+  font-size: 40px;
+}
+
+.bubble i:nth-child(3) {
+  animation-delay: 3s;
+  font-size: 25px;
+}
+
+.bubble i:nth-child(4) {
+  animation-delay: 4.5s;
+  font-size: 35px;
+}
+
+.bubble i:nth-child(5) {
+  animation-delay: 5.3s;
+}

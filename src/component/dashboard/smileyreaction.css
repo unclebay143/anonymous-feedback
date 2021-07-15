@@ -1,0 +1,14 @@
+.smiley-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.smiley-container .smiley {
+  font-size: 30px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.smiley-count {
+  color: var(--primary);
+}

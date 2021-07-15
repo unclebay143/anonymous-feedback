@@ -1,0 +1,29 @@
+.feedback-card {
+  width: 60%;
+}
+
+.card-header {
+  background: var(--secondary);
+  background-color: rgba(68.6, 25.9, 38, 0.9);
+}
+
+.trash-feedback {
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.favourite-feedback {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.share-feedback--btn {
+  background-color: var(--secondary);
+  color: var(--white);
+  line-height: 1.4;
+  font-size: 14px;
+}
+.share-feedback--btn:hover {
+  color: var(--white);
+  border: 1px solid var(--primary);
+}

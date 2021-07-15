@@ -1,0 +1,15 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.menu button {
+  width: 100px;
+  background-color: var(--secondary);
+  margin-bottom: 2rem;
+  color: var(--white);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
