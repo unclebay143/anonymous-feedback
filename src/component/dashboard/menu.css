@@ -1,15 +1,31 @@
 .menu {
   display: flex;
-  flex-direction: column;
   height: 100%;
+  padding-top: 5rem;
 }
 
 .menu button {
-  width: 100px;
+  width: 150px;
   background-color: var(--secondary);
   margin-bottom: 2rem;
   color: var(--white);
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.clerk-user-button {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu button {
+    margin-right: 0rem;
+  }
 }

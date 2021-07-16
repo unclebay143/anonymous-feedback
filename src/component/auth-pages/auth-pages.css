@@ -16,6 +16,10 @@
   display: none;
 }
 
+.tab-content>.tab-pane{
+  transition: 1s ease all;
+}
+
 @media (min-width: 600px) {
   .tab-container {
     width: 50%;
