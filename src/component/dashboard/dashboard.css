@@ -4,13 +4,14 @@
   justify-content: space-between;
 }
 
-.dashboard-container section {
-  height: 100vh;
+.dashboard-container .feedback-stack {
   text-align: center;
-  margin-right: 0.6rem;
+  padding-top: 3rem;
+  padding-bottom: 100px;
 }
 
 .dashboard-container aside {
+  background-color: rgb(68.6, 25.9, 38);
   background-color: rgba(68.6, 25.9, 38, 0.9);
 }
 
@@ -19,65 +20,93 @@
   height: 20%;
   bottom: 0;
   right: 0;
+  padding: 2rem 0;
 }
 .fixed-heading-wrap {
   background-color: var(--white);
   position: fixed;
   z-index: 888;
-  text-align: center;
+  text-align: left;
   width: 100%;
   top: 0;
   right: 0;
   padding-top: 1rem;
+  padding-left: 0.8rem;
   color: var(--secondary);
+}
+
+.fixed-heading-wrap .heading-title {
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+
+.fixed-heading-wrap .heading-greet {
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 17px;
 }
 
 .dashboard-container aside button {
   border: 1px solid var(--primary);
 }
 
-@media (min-width: 600px) {
+.feedback-stack::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0.9em;
+}
+
+.feedback-stack::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px var(--primary);
+  -webkit-box-shadow: inset 0 0 6px var(--primary);
+}
+.feedback-stack::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  outline: 0.05rem solid var(--dark-2);
+  background-color: var(--secondary);
+}
+
+.dashboard-container aside:nth-child(3) {
+  height: unset;
+}
+
+@media (min-width: 900px) {
   .dashboard-container {
     overflow: hidden;
     flex-direction: row;
+  }
+
+  .fixed-heading-wrap {
+    text-align: center;
   }
 
   .dashboard-container aside {
     width: 20%;
     padding: 3rem;
     z-index: 999;
+    background-color: rgba(68.6, 25.9, 38, 0.9);
   }
 
   .dashboard-container aside:nth-child(3) {
     height: 100%;
+    position: unset;
+    padding-top: 8rem;
   }
 
   .dashboard-container .feedback-stack {
     overflow-y: scroll;
     padding: 20px;
     width: 100%;
-    padding-top: 10rem;
+    margin-top: 8rem;
+  }
+
+  .dashboard-container section {
+    height: 100vh;
+    margin-right: 0.6rem;
   }
 
   body::-webkit-scrollbar {
     display: none;
-  }
-
-  .feedback-stack::-webkit-scrollbar {
-    width: 0.9em;
-  }
-
-  .feedback-stack::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px var(--primary);
-    -webkit-box-shadow: inset 0 0 6px var(--primary);
-  }
-
-  .feedback-stack::-webkit-scrollbar-thumb {
-    outline: 0.18rem solid var(--primary);
-    background-color: var(--secondary);
-  }
-
-  .dashboard-container aside:nth-child(3) {
-    position: unset;
   }
 }

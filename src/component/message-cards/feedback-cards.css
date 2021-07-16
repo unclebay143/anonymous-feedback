@@ -1,8 +1,13 @@
 .feedback-card {
-  width: 60%;
+  width: 100%;
+  border-radius: 9px;
 }
 
-.card-header {
+.feedback-card .card-header {
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+
+  border: 2px solid var(--primary);
   background: var(--secondary);
   background-color: rgba(68.6, 25.9, 38, 0.9);
 }
@@ -22,8 +27,21 @@
   color: var(--white);
   line-height: 1.4;
   font-size: 14px;
+  border: 2px solid var(--primary);
 }
 .share-feedback--btn:hover {
   color: var(--white);
   border: 1px solid var(--primary);
+}
+
+.feedback-date {
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+@media (min-width: 600px) {
+  .feedback-card {
+    width: 60%;
+    border-radius: 9px;
+  }
 }

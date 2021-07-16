@@ -6,7 +6,7 @@
 
 .navbar .brand-logo {
   color: var(--primary);
-  font-size: 45px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--primary);
 }
@@ -19,6 +19,7 @@
 }
 
 @media (min-width: 600px) {
-  .navbar {
+  .navbar .brand-logo {
+    font-size: 45px;
   }
 }

@@ -1,3 +1,4 @@
+import { useUser } from "@clerk/clerk-react";
 import React from "react";
 import { Bubble } from "../../layouts/animation/Bubble";
 import { Navbar } from "../../layouts/navbars/Navbar";

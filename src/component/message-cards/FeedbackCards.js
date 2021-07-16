@@ -25,7 +25,7 @@ export const FeedbackCards = () => {
           <div>
             <FontAwesomeIcon icon={faTrash} className="trash-feedback" />
           </div>
-          <div>Given 2 days ago</div>
+          <div className="feedback-date">Given 2 days ago</div>
         </div>
       </div>
     </React.Fragment>
