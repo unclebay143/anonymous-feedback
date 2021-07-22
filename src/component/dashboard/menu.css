@@ -20,6 +20,10 @@
   justify-content: center;
 }
 
+.cl-component.cl-user-button-popup {
+  z-index: 999;
+}
+
 @media (min-width: 900px) {
   .menu {
     flex-direction: column;
