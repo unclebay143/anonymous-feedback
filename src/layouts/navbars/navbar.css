@@ -21,5 +21,6 @@
 @media (min-width: 600px) {
   .navbar .brand-logo {
     font-size: 45px;
+    font-size: 30px;
   }
 }

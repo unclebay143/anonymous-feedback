@@ -14,10 +14,13 @@ export const Hero = () => {
 
         <section className="hero-get-started">
           <SignedOut>
-            <a href={pageUrl.CLERK_LOGIN_PAGE} className="btn get-started">
+            <a
+              href={pageUrl.CLERK_REGISTERATION_PAGE}
+              className="btn get-started"
+            >
               Get Started
             </a>
-            <a href={pageUrl.CLERK_REGISTERATION_PAGE} className="btn login">
+            <a href={pageUrl.CLERK_LOGIN_PAGE} className="btn login">
               Login
             </a>
           </SignedOut>
