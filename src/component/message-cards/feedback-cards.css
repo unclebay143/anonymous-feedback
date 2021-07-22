@@ -6,8 +6,6 @@
 .feedback-card .card-header {
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
-
-  border: 2px solid var(--primary);
   background: var(--secondary);
   background-color: rgba(68.6, 25.9, 38, 0.9);
 }
@@ -18,8 +16,16 @@
 }
 
 .favourite-feedback {
-  color: var(--primary);
   cursor: pointer;
+  color: var(--white);
+}
+
+.favourite-feedback.starred {
+  color: var(--primary);
+}
+
+.card-text::first-letter {
+  text-transform: capitalize;
 }
 
 .share-feedback--btn {
@@ -27,7 +33,6 @@
   color: var(--white);
   line-height: 1.4;
   font-size: 14px;
-  border: 2px solid var(--primary);
 }
 .share-feedback--btn:hover {
   color: var(--white);
@@ -41,7 +46,7 @@
 
 @media (min-width: 600px) {
   .feedback-card {
-    width: 60%;
+    /* width: 60%; */
     border-radius: 9px;
   }
 }

@@ -1,27 +1,85 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { pageUrl } from "../../constant/pageurl";
 import { Bubble } from "../../layouts/animation/Bubble";
 import { Navbar } from "../../layouts/navbars/Navbar";
-import { SelectSmileyReaction } from "../dashboard/SmileyReactions";
+import { SelectSmileyReaction } from "../dashboard/smiley-helper/SmileyReactions";
 import "./feedbackform.css";
 
 export const FeedbackForm = () => {
   const { id } = useParams();
   const [receiver, setReceiver] = useState(null);
   const [feedbackSent, setfeedbackSent] = useState(false);
+  const [upgrade, setUpgrade] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [isSubmitting, setSubmitting] = useState(false);
 
-  const users = ["unclebigbay", "sugar", "faith"];
-  const findReceiver = users.filter(
-    (user) => user.toLowerCase() === id.toLowerCase()
-  );
+  const [feedback, setFeedback] = useState(null);
+  const [smiley, setSmiley] = useState(null);
 
   useEffect(() => {
-    if (findReceiver.length > 0) {
-      setReceiver(findReceiver);
-    }
-  }, [findReceiver.length, findReceiver]);
+    const findReceiver = async () => {
+      const username = {
+        username: id,
+      };
+      const { data } = await axios.post(
+        "http://localhost:1111/receivers/find",
+        username
+      );
 
+      if (data.message) {
+        // stop loading and do nothing
+        setLoading(false);
+        return;
+      }
+
+      setReceiver(data);
+      setLoading(false);
+    };
+
+    findReceiver();
+  }, [id]);
+
+  // Feedback message
+  const handleChange = (e) => {
+    setFeedback(e.target.value);
+  };
+
+  // set smiley -callback to selectSmileyReaction component
+  const setSmileyToFrom = (selectedSmiley) => {
+    setSmiley(selectedSmiley);
+  };
+
+  // Form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    if (feedback && smiley) {
+      const newFeedBack = {
+        username: receiver,
+        feedback: feedback,
+        smiley: smiley,
+      };
+      try {
+        const { data } = await axios.post(
+          "http://localhost:1111/feedbacks/new",
+          newFeedBack
+        );
+
+        console.log(data);
+
+        if (data === "full") {
+          setUpgrade(true);
+        }
+        // setfeedbackSent(true);
+      } catch (error) {
+        setSubmitting(false);
+      }
+    }
+  };
+
+  // UI for successful feedback
   if (feedbackSent) {
     return (
       <div className="feedback-success container text-center">
@@ -33,25 +91,44 @@ export const FeedbackForm = () => {
       </div>
     );
   }
+  if (upgrade) {
+    return (
+      <div className="feedback-success container text-center">
+        <h1>Feedback Limit Reached</h1>
+        <a href={pageUrl.HOMEPAGE} className="btn mt-3">
+          {id} has reached their free feedback limit.
+        </a>
+        <Bubble />
+      </div>
+    );
+  }
   return (
     <React.Fragment>
       <Navbar />
       <div className="feedback-form container">
-        {receiver ? (
+        {loading ? (
+          <h1 className="receiver-alert">Finding receiver. please wait</h1>
+        ) : receiver ? (
           <h1 className="receiver-alert">Write Feedback to {receiver}</h1>
         ) : (
           <h1 className="receiver-alert">{id} not found</h1>
         )}
+
         <div className="select-smiley">
-          <SelectSmileyReaction />
+          <SelectSmileyReaction setSmileyToFrom={setSmileyToFrom} />
         </div>
-        <form>
-          <textarea placeholder="Leave feedback" />
+        <form onSubmit={handleSubmit}>
+          <textarea
+            placeholder={`${smiley ? "Leave feedback" : "Select Emoji"}`}
+            onChange={handleChange}
+            disabled={smiley ? false : true}
+            required
+          />
           <button
             className="btn feedback-btn"
             disabled={receiver ? false : true}
           >
-            Send
+            {isSubmitting ? "working on it" : "Send"}
           </button>
         </form>
       </div>

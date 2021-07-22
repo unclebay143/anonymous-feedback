@@ -25,7 +25,6 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
-  width: 130px;
   /* background: linear-gradient(45deg, #f3ec78, #af4261); */
   background-color: var(--secondary);
   /* border: 0px solid transparent; */
@@ -40,6 +39,11 @@
 
 .hero-get-started .login {
   margin-left: 1rem;
+  width: 130px;
+}
+
+.hero-get-started .get-started {
+  width: 130px;
 }
 
 @media (min-width: 900px) {

@@ -23,6 +23,10 @@
   align-items: center;
 }
 
+.smiley-container .smiley.active {
+  border: 1px solid var(--primary);
+}
+
 .smiley-count {
   color: var(--primary);
 }

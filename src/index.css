@@ -8,6 +8,10 @@ body {
   font-family: "Poppins";
 }
 
+* {
+  font-family: "Poppins";
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -15,9 +19,9 @@ code {
 
 :root {
   --primary: #f3ec78;
-
-  --secondary: #af4261;
   --secondary: rgba(68.6, 25.9, 38, 0.9);
+  --secondary-1: rgba(68.6, 25.9, 38, 0.9);
+  --secondary-2: #af4261;
   --dark: #111827;
   --white: #ffffff;
   --dark-2: #333333;

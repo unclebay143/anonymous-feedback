@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { pageUrl } from "../../constant/pageurl";
@@ -12,12 +13,20 @@ export const Hero = () => {
         </section>
 
         <section className="hero-get-started">
-          <Link to={pageUrl.REGISTERATION_PAGE} className="btn get-started">
-            Get Started
-          </Link>
-          <Link to={pageUrl.LOGIN_PAGE} className="btn login">
-            Login
-          </Link>
+          <SignedOut>
+            <a href={pageUrl.CLERK_LOGIN_PAGE} className="btn get-started">
+              Get Started
+            </a>
+            <a href={pageUrl.CLERK_REGISTERATION_PAGE} className="btn login">
+              Login
+            </a>
+          </SignedOut>
+
+          <SignedIn>
+            <Link to={pageUrl.DASHBOARD} className="btn">
+              Dashboard
+            </Link>
+          </SignedIn>
         </section>
       </div>
     </React.Fragment>

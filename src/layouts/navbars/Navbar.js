@@ -15,7 +15,8 @@ export const Navbar = () => {
             className="brand-logo"
             style={{ textDecoration: "none" }}
           >
-            <FontAwesomeIcon icon={faMapMarkerAlt} /> Anonymous Feedback
+            Anonymous Feedback
+            {/* <FontAwesomeIcon icon={faMapMarkerAlt} /> Anonymous Feedback */}
           </Link>
           <button className="btn login-btn" type="submit">
             Login

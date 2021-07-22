@@ -1,34 +1,68 @@
 import React, { useEffect, useState } from "react";
 import "./smileyreaction.css";
 
-export const SmileyReactions = () => {
+export const SmileyReactions = ({ userFeedbacks }) => {
+  // Get the numbers of smiley a user has
+  const getSmileyLength = (array, smileyName) => {
+    if (userFeedbacks) {
+      const numbersOfSmiley = array.filter(
+        (arr) => arr.smiley === smileyName
+      ).length;
+      return numbersOfSmiley;
+    }
+  };
+
   return (
     <section className="smiley-container">
-      <button className="smiley love">
-        <span className="smiley-count">0</span>
-        <span>😍</span>
-      </button>
-      <button className="smiley cry">
-        <span className="smiley-count">0</span>
-        <span>😭</span>
-      </button>
-      <button className="smiley sad">
-        <span className="smiley-count">0</span>
-        <span>😥</span>
-      </button>
-      <button className="smiley hail">
-        <span className="smiley-count">0</span>
-        <span>🙌</span>
-      </button>
-      <button className="smiley thumb">
-        <span className="smiley-count">0</span>
-        <span>👍</span>
-      </button>
+      <abbr title={`${getSmileyLength(userFeedbacks, "love")} love emojis`}>
+        <button className="smiley love">
+          <span className="smiley-count">
+            {getSmileyLength(userFeedbacks, "love") || 0}
+          </span>
+          <span>😍</span>
+        </button>
+      </abbr>
+
+      <abbr title={`${getSmileyLength(userFeedbacks, "cry")} cry emojis`}>
+        <button className="smiley cry">
+          <span className="smiley-count">
+            {getSmileyLength(userFeedbacks, "cry") || 0}
+          </span>
+          <span>😭</span>
+        </button>
+      </abbr>
+
+      <abbr title={`${getSmileyLength(userFeedbacks, "sad")} sad emojis`}>
+        <button className="smiley sad">
+          <span className="smiley-count">
+            {getSmileyLength(userFeedbacks, "sad") || 0}
+          </span>
+          <span>😥</span>
+        </button>
+      </abbr>
+
+      <abbr title={`${getSmileyLength(userFeedbacks, "hail")} hail emojis`}>
+        <button className="smiley hail">
+          <span className="smiley-count">
+            {getSmileyLength(userFeedbacks, "hail") || 0}
+          </span>
+          <span>🙌</span>
+        </button>
+      </abbr>
+
+      <abbr title={`${getSmileyLength(userFeedbacks, "thumb")} thumb emojis`}>
+        <button className="smiley thumb">
+          <span className="smiley-count">
+            {getSmileyLength(userFeedbacks, "thumb") || 0}
+          </span>
+          <span>👍</span>
+        </button>
+      </abbr>
     </section>
   );
 };
 
-export const SelectSmileyReaction = () => {
+export const SelectSmileyReaction = (props) => {
   const [selectedSmiley, setSelectedSmiley] = useState(null);
 
   useEffect(() => {
@@ -38,6 +72,9 @@ export const SelectSmileyReaction = () => {
         for (let x = 0; x < allSmiley.length; x++) {
           if (allSmiley[x].id === selectedSmiley) {
             // Add big font-size to selected Smiley
+
+            props.setSmileyToFrom(allSmiley[x].id);
+
             document
               .getElementById(allSmiley[x].id)
               .classList.add("selected-smiley");
@@ -64,7 +101,7 @@ export const SelectSmileyReaction = () => {
     return () => {
       setSelectedSmiley(null);
     };
-  }, [selectedSmiley]);
+  }, [selectedSmiley, props]);
 
   return (
     <section className="select-smiley-container">

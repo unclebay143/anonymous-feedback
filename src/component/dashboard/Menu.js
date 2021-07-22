@@ -1,15 +1,26 @@
 import { UserButton } from "@clerk/clerk-react";
 import {
+  faCircle,
   faCopy,
   faShare,
   faShareAlt,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import "./menu.css";
 
 export const Menu = () => {
+  const [notFree, setnotFree] = useState(false);
+
+  // Reload page
+  const reloadPage = () => {
+    window.location.reload();
+  };
+
+  const premiumFeature = () => {
+    setnotFree(true);
+  };
   return (
     <div className="menu">
       <button>
@@ -21,8 +32,13 @@ export const Menu = () => {
         {/* <span> Link</span> */}
         {/* Link */}
       </button>
-      <button>
-        <FontAwesomeIcon icon={faStar} /> Starred
+      <button onClick={() => premiumFeature()}>
+        <FontAwesomeIcon icon={faStar} />
+        {notFree ? " Premium" : " Starred"}
+        {/* <span> Link</span> */}
+      </button>
+      <button onClick={() => reloadPage()}>
+        <FontAwesomeIcon icon={faCircle} /> Reload
         {/* <span> Link</span> */}
       </button>
       <button className="clerk-user-button">
