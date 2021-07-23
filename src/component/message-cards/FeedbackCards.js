@@ -1,12 +1,8 @@
-import {
-  faCross,
-  faStar,
-  faTimes,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useState } from "react";
+import { ANONYMOUS_BASE_URL } from "../../constant/endpoint";
 import { timeAgo } from "../../_helper/time";
 import { convertSmileyText } from "../dashboard/smiley-helper/_smileyFunction";
 import "./feedback-cards.css";
@@ -35,7 +31,7 @@ export const FeedbackCards = ({ id, feedback, smiley, givenDate }) => {
       id: selectedFeedbackID,
     };
     const { data } = await axios.put(
-      "http://localhost:1111/feedbacks/delete",
+      `${ANONYMOUS_BASE_URL}/feedbacks/delete`,
       payload
     );
 
@@ -51,7 +47,7 @@ export const FeedbackCards = ({ id, feedback, smiley, givenDate }) => {
       {deleting && selectedFeedbackID === id ? (
         <div className="feedback-card card text-right m-auto mb-5">
           <div className="card-header text-right d-flex justify-content-between">
-            <FontAwesomeIcon icon={faTimes} className="favourite-feedback" />
+            {/* <FontAwesomeIcon icon={faTimes} className="favourite-feedback" /> */}
           </div>
           <div className="card-body">
             <p className="card-text">
@@ -74,7 +70,7 @@ export const FeedbackCards = ({ id, feedback, smiley, givenDate }) => {
           </div>
         </div>
       ) : (
-        <div className="feedback-card card text-right m-auto mb-5">
+        <div className="feedback-card cad text-right m-auto mb-5">
           <div className="card-header text-right d-flex justify-content-between">
             <FontAwesomeIcon icon={faStar} className="favourite-feedback" />
           </div>
@@ -84,7 +80,14 @@ export const FeedbackCards = ({ id, feedback, smiley, givenDate }) => {
               <p className="smiley">{convertSmileyText(smiley)}</p>
             </p>
             <div className="text-center">
-              <a href="#" className="btn share-feedback--btn">
+              <a
+                className="btn share-feedback--btn"
+                href={`https://twitter.com/intent/tweet?text=Got a new feedback from @unclebigbay anonymous platform 
+                
+                ${convertSmileyText(smiley)} - ${feedback}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Share
               </a>
             </div>

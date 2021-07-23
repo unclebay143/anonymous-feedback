@@ -1,0 +1,36 @@
+.how-it-works {
+  margin-top: 50px;
+}
+
+.how-it-works .btn {
+  background-color: var(--primary);
+  color: var(--secondary);
+  background-color: var(--secondary);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.how-it-works h1 {
+  color: var(--secondary);
+  font-weight: 800;
+  line-height: 90px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+  display: none;
+}
+
+.how-it-works .card-title {
+  color: var(--secondary);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.how-it-works .card-text {
+  margin: 2rem 0;
+}
+
+@media (min-width: 900px) {
+  .how-it-works {
+    margin-top: 100px;
+  }
+}

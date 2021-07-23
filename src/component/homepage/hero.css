@@ -1,9 +1,11 @@
 .hero-container {
-  margin-top: 5rem;
+  /* margin-top: 5rem; enable if the navbar should now be fixed*/
+  margin-top: 9rem;
 }
 
 .hero-container h1 {
   font-size: 35px;
+  font-size: 33px;
   line-height: 45px;
   font-weight: 700;
   background-color: var(--secondary);
@@ -25,12 +27,11 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
-  /* background: linear-gradient(45deg, #f3ec78, #af4261); */
   background-color: var(--secondary);
-  /* border: 0px solid transparent; */
-  border: 1px solid var(--dark);
+  border: 1px solid var(--white);
+  /* background: linear-gradient(45deg, #f3ec78, #af4261); */
 
-  border: 1px solid var(--primary);
+  /* border: 1px solid var(--primary); */
 }
 
 .hero-get-started .btn:hover {
@@ -43,6 +44,10 @@
 }
 
 @media (min-width: 900px) {
+  .hero-container {
+    margin-top: 5rem;
+  }
+
   .hero-container h1 {
     font-size: 40px;
   }
@@ -50,7 +55,7 @@
 
 @media (min-width: 600px) {
   .hero-container h1 {
-    font-size: 80px;
+    font-size: 60px;
     line-height: 80px;
   }
 }

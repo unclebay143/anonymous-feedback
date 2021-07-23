@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faComment, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { pageUrl } from "../../constant/pageurl";
 import { Link } from "react-router-dom";
 
@@ -10,13 +10,8 @@ export const Navbar = () => {
     <React.Fragment>
       <nav className="navbar">
         <div className="container-fluid px-lg-5">
-          <Link
-            to={pageUrl.HOMEPAGE}
-            className="brand-logo"
-            style={{ textDecoration: "none" }}
-          >
-            Anonymous Feedback
-            {/* <FontAwesomeIcon icon={faMapMarkerAlt} /> Anonymous Feedback */}
+          <Link to={pageUrl.HOMEPAGE} className="brand-logo">
+            <FontAwesomeIcon icon={faComment} /> Anonymous Feedback
           </Link>
           <button className="btn login-btn" type="submit">
             Login

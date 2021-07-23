@@ -6,6 +6,12 @@
   position: absolute;
   bottom: -70px;
   right: 0;
+  left: 0;
+}
+
+.bubble.bottom-flow {
+  bottom: -50vh;
+  width: 100%;
 }
 
 .bubble i {

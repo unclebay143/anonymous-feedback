@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { ANONYMOUS_BASE_URL } from "../../constant/endpoint";
 import { pageUrl } from "../../constant/pageurl";
 import { Bubble } from "../../layouts/animation/Bubble";
 import { Navbar } from "../../layouts/navbars/Navbar";
@@ -24,7 +25,7 @@ export const FeedbackForm = () => {
         username: id,
       };
       const { data } = await axios.post(
-        "http://localhost:1111/receivers/find",
+        `${ANONYMOUS_BASE_URL}/receivers/find`,
         username
       );
 
@@ -63,16 +64,15 @@ export const FeedbackForm = () => {
       };
       try {
         const { data } = await axios.post(
-          "http://localhost:1111/feedbacks/new",
+          `${ANONYMOUS_BASE_URL}/feedbacks/new`,
           newFeedBack
         );
 
-        console.log(data);
-
         if (data === "full") {
           setUpgrade(true);
+        } else {
+          setfeedbackSent(true);
         }
-        // setfeedbackSent(true);
       } catch (error) {
         setSubmitting(false);
       }
@@ -81,12 +81,15 @@ export const FeedbackForm = () => {
 
   // UI for successful feedback
   if (feedbackSent) {
+    function reloadPage() {
+      window.location.reload();
+    }
     return (
       <div className="feedback-success container text-center">
         <h1>Feedback Delivered</h1>
-        <a href={pageUrl.HOMEPAGE} className="btn mt-3">
+        <p className="btn mt-3" onClick={() => reloadPage()}>
           Go back
-        </a>
+        </p>
         <Bubble />
       </div>
     );

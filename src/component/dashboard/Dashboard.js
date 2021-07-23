@@ -1,6 +1,9 @@
-import { useUser } from "@clerk/clerk-react";
+import { UserButton, useUser } from "@clerk/clerk-react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ANONYMOUS_BASE_URL } from "../../constant/endpoint";
+import { pageUrl } from "../../constant/pageurl";
 import { FeedbackCards } from "../message-cards/FeedbackCards";
 import "./dashboard.css";
 import { Menu } from "./Menu";
@@ -16,7 +19,7 @@ export const Dashboard = () => {
         username,
       };
       const { data } = await axios.post(
-        "http://localhost:1111/feedbacks/retrieve",
+        `${ANONYMOUS_BASE_URL}/feedbacks/retrieve`,
         payload
       );
 
@@ -34,8 +37,14 @@ export const Dashboard = () => {
 
         <section className="container-fluid feedback-stack">
           <div className="fixed-heading-wrap">
-            <h1 className="heading-title"> Anonymous Feedbacks </h1>
-            <h1 className="heading-greet"> Welcome back, {username}</h1>
+            <div className="heading-caption">
+              <Link to={pageUrl.HOMEPAGE} className="heading-title">
+                {" "}
+                Anonymous Feedbacks{" "}
+              </Link>
+              <h1 className="heading-greet"> Welcome back, {username}</h1>
+            </div>
+            <UserButton />
           </div>
           <p>
             {userFeedbacks?.length >= 5 &&

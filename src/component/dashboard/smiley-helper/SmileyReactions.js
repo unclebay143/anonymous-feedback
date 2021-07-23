@@ -15,7 +15,11 @@ export const SmileyReactions = ({ userFeedbacks }) => {
   return (
     <section className="smiley-container">
       <abbr title={`${getSmileyLength(userFeedbacks, "love")} love emojis`}>
-        <button className="smiley love">
+        <button
+          className={`smiley love ${
+            getSmileyLength(userFeedbacks, "love") > 0 && "active"
+          }`}
+        >
           <span className="smiley-count">
             {getSmileyLength(userFeedbacks, "love") || 0}
           </span>
@@ -24,7 +28,11 @@ export const SmileyReactions = ({ userFeedbacks }) => {
       </abbr>
 
       <abbr title={`${getSmileyLength(userFeedbacks, "cry")} cry emojis`}>
-        <button className="smiley cry">
+        <button
+          className={`smiley cry ${
+            getSmileyLength(userFeedbacks, "cry") > 0 && "active"
+          }`}
+        >
           <span className="smiley-count">
             {getSmileyLength(userFeedbacks, "cry") || 0}
           </span>
@@ -33,7 +41,11 @@ export const SmileyReactions = ({ userFeedbacks }) => {
       </abbr>
 
       <abbr title={`${getSmileyLength(userFeedbacks, "sad")} sad emojis`}>
-        <button className="smiley sad">
+        <button
+          className={`smiley sad ${
+            getSmileyLength(userFeedbacks, "sad") > 0 && "active"
+          }`}
+        >
           <span className="smiley-count">
             {getSmileyLength(userFeedbacks, "sad") || 0}
           </span>
@@ -42,7 +54,11 @@ export const SmileyReactions = ({ userFeedbacks }) => {
       </abbr>
 
       <abbr title={`${getSmileyLength(userFeedbacks, "hail")} hail emojis`}>
-        <button className="smiley hail">
+        <button
+          className={`smiley hail ${
+            getSmileyLength(userFeedbacks, "hail") > 0 && "active"
+          }`}
+        >
           <span className="smiley-count">
             {getSmileyLength(userFeedbacks, "hail") || 0}
           </span>
@@ -51,7 +67,11 @@ export const SmileyReactions = ({ userFeedbacks }) => {
       </abbr>
 
       <abbr title={`${getSmileyLength(userFeedbacks, "thumb")} thumb emojis`}>
-        <button className="smiley thumb">
+        <button
+          className={`smiley thumb ${
+            getSmileyLength(userFeedbacks, "thumb") > 0 && "active"
+          }`}
+        >
           <span className="smiley-count">
             {getSmileyLength(userFeedbacks, "thumb") || 0}
           </span>
