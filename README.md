@@ -1,6 +1,6 @@
 # Anonymous Feedback Platform
 
-[Read Blog](url)
+[Read Blog](https://unclebigbay.com/introducing-the-anonymous-feedback-platform-powered-by-the-chern-stack)
 
 
 
@@ -21,7 +21,7 @@
 
 <hr />
 
-[Watch Demo](url)
+[Watch Demo](https://www.youtube.com/watch?v=KKoKh5U9_XQ)
 
 <hr />
 
