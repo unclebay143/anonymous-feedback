@@ -1143,17 +1143,17 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@clerk/clerk-react@^1.15.0":
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-1.16.1.tgz#2ac2d965b1bb66586343d75804b7cd07d09ddb3e"
-  integrity sha512-48qWqJemF0AcLOQSD/+P0XsFceqNZ5b8dzPkbhdgpW/sDpEVAsCdpTJhgxRm5T2QlChychReo+8iQgiOEICyBg==
+"@clerk/clerk-react@^1.17.0":
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-1.19.0.tgz#2611bb3b718b0566e4f93447902487e06b9b2c11"
+  integrity sha512-fp31mrMHIMH8lL7xX03kv3euK58+yyRHHUGAv8lTdqoNX2caqrQpzep/n+TELUwdnmPSdlZVLBJ1CxoahwDviA==
   dependencies:
-    "@clerk/types" "1.8.1"
+    "@clerk/types" "1.11.0"
 
-"@clerk/types@1.8.1":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@clerk/types/-/types-1.8.1.tgz#f0a7918d9ccbafd4ba856a95b9558293c3ef4a19"
-  integrity sha512-A6a3sSoCqmtjgGQRBS3EPY3fXXwZGxWR7svdHlu1HgRhZzD7WtPIkyALP6byTPd/77V+b6FMbLl0UrAPVRs5oA==
+"@clerk/types@1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@clerk/types/-/types-1.11.0.tgz#f9235354afd00745f5d35ecd00715ec98b01f2eb"
+  integrity sha512-HYHJXd82nz07cSyczGB/yrU7ck7G/T5wWOjoMBXCepCRYbPp9hdKZ+ECc900Rg1mIKsPiEiO7znhv10onnBQ+A==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
